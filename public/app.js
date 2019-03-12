@@ -101,44 +101,49 @@ var scrollToAnimate = exports.scrollToAnimate = function () {
 
 var _Utils = require('./Utils.js');
 
-var scrollInstance = new _Utils.scrollToAnimate(); // alert(2);
+var scrollInstance = new _Utils.scrollToAnimate();
+
+// let directive = Vue.directive('animate', {
+
+//     bind: (el, binding, vnode) => {
+
+//     },
+//     // Когда привязанный элемент вставлен в DOM...
+//     inserted: (el, binding, vnode) => {
+//         let once = false;
+//         update();
+//         window.addEventListener('scroll', () => {
+//             if (!once) {
+//                 update();
+//             }
+//         });
+
+//         function update() {
+//             if (isInViewport(el, 50)) {
+//                 el.classList.add(binding.value);
+//                 if (binding.arg === 'once') {
+//                     once = true;
+//                 }
+//             } else {
+//                 el.classList.remove(binding.value);
+//             }
+//         }
+//     }
+//     // update: function() {
+
+//     // }
+// });
+// Vue.use(directive);
 
 
-var directive = Vue.directive('animate', {
-
-    bind: function bind(el, binding, vnode) {},
-    // Когда привязанный элемент вставлен в DOM...
-    inserted: function inserted(el, binding, vnode) {
-        var once = false;
-        update();
-        window.addEventListener('scroll', function () {
-            if (!once) {
-                update();
-            }
-        });
-
-        function update() {
-            if ((0, _Utils.isInViewport)(el, 50)) {
-                el.classList.add(binding.value);
-                if (binding.arg === 'once') {
-                    once = true;
-                }
-            } else {
-                el.classList.remove(binding.value);
-            }
-        }
-    }
-    // update: function() {
-
-    // }
-});
-Vue.use(directive);
-
+// alert(2);
 var app = new Vue({
     el: '#app',
     data: {
         showMenu: false,
-        onTop: false
+        onTop: false,
+        authorized: false,
+        searchValue: ''
     },
     mounted: function mounted() {
         var _this = this;
@@ -181,23 +186,23 @@ var app = new Vue({
         $(document).on('scroll', function () {
             _this.headerCheck();
         });
-        $(window).on('click', function (e) {
-            var modal = $('.modal.opened');
+        // $(window).on('click', (e) => {
+        //     var modal = $('.modal.opened');
 
-            if (modal && e.target.contains(modal[0])) {
-                _this.closeModal();
-            }
-        });
+        //     if (modal && e.target.contains(modal[0])) {
+        //         this.closeModal();
+        //     }
+        // });
 
         window.addEventListener('mousewheel', function () {
             scrollInstance.clear();
         });
 
-        window.addEventListener('click', function (e) {
-            if (!_this.$refs.menu.contains(e.target)) {
-                _this.showMenu = false;
-            }
-        });
+        // window.addEventListener('click', (e) => {
+        //     if (!this.$refs.menu.contains(e.target)) {
+        //         this.showMenu = false;
+        //     }
+        // });
 
         var tabs = $('[data-navigation]');
         var links = $('header a[href]');
@@ -217,18 +222,46 @@ var app = new Vue({
             });
         }, false);
 
-        window.addEventListener('resize', function () {
-            $('.efficiency-tooltip').each(function (i, element) {
-                _this.tooltipPosition(element);
-            });
+        $('.slick').slick({
+            dots: true,
+            arrows: true,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 3,
+            // appendDots: '.slick-dots-wrapper',
+            prevArrow: '.slick-prev',
+            nextArrow: '.slick-next',
+            responsive: [{
+                breakpoint: 1280,
+                settings: {
+                    // arrows: false,
+                    centerMode: true,
+                    slidesToShow: 2
+                }
+            }, {
+                breakpoint: 720,
+                settings: {
+                    arrows: false,
+                    dots: false,
+                    centerMode: true,
+                    centerPadding: '20px',
+                    slidesToShow: 1
+                }
+            }]
         });
 
-        $('.efficiency-tooltip').each(function (i, element) {
-            _this.tooltipPosition(element);
-        });
-        $('.efficiency-tooltip').on('mouseenter', function (e) {
-            _this.tooltipPosition(e.currentTarget);
-        });
+        // window.addEventListener('resize', () => {
+        //     $('.efficiency-tooltip').each((i, element) => {
+        //         this.tooltipPosition(element);
+        //     });
+        // });
+
+        // $('.efficiency-tooltip').each((i, element) => {
+        //     this.tooltipPosition(element);
+        // });
+        // $('.efficiency-tooltip').on('mouseenter', (e) => {
+        //     this.tooltipPosition(e.currentTarget);
+        // });
     },
 
     methods: {
@@ -239,30 +272,34 @@ var app = new Vue({
             this.showMenu = !this.showMenu;
         },
         headerCheck: function headerCheck() {
-            if (document.documentElement.scrollTop > 200) {
+            if (document.documentElement.scrollTop > 150) {
                 $('header').addClass('fixed');
             } else {
                 $('header').removeClass('fixed');
             }
         },
-        toggleAccordeonItem: function toggleAccordeonItem(e) {
-            var target = e.currentTarget.parentNode;
-            $(target).find('.hypothesis-list__item_text').stop().slideToggle(300);
-            if (target.classList.contains('active')) {
-                target.classList.remove('active');
-            } else {
-                target.classList.add('active');
-            }
+        searchSubmit: function searchSubmit(e) {
+            this.searchValue;
         },
-        toggleReferenceItem: function toggleReferenceItem(e) {
-            var target = e.currentTarget;
-            $(target).next().stop().slideToggle(300);
-            if (target.parentNode.classList.contains('active')) {
-                target.parentNode.classList.remove('active');
-            } else {
-                target.parentNode.classList.add('active');
-            }
-        },
+
+        // toggleAccordeonItem(e) {
+        //     let target = e.currentTarget.parentNode;
+        //     $(target).find('.hypothesis-list__item_text').stop().slideToggle(300);
+        //     if (target.classList.contains('active')) {
+        //         target.classList.remove('active');
+        //     } else {
+        //         target.classList.add('active');
+        //     }
+        // },
+        // toggleReferenceItem(e) {
+        //     let target = e.currentTarget;
+        //     $(target).next().stop().slideToggle(300);
+        //     if (target.parentNode.classList.contains('active')) {
+        //         target.parentNode.classList.remove('active');
+        //     } else {
+        //         target.parentNode.classList.add('active');
+        //     }
+        // },
         navigation: function navigation(e) {
             e.preventDefault();
             var id = e.currentTarget.getAttribute('href').substr(1);
@@ -273,30 +310,6 @@ var app = new Vue({
             }
             if (elem) {
                 scrollInstance.animate(document.documentElement, offset, 1000);
-            }
-        },
-        openModal: function openModal(name) {
-            $('.modal').filter('[data-id="' + name + '"]').addClass('opened');
-            $('.main-wrapper').addClass('opened');
-        },
-        closeModal: function closeModal() {
-            $('.modal').removeClass('opened');
-            $('.main-wrapper').removeClass('opened');
-        },
-        tooltipPosition: function tooltipPosition(element) {
-            var $tooltip = $(element);
-            var $content = $(element).find('.efficiency-tooltip__content');
-            var boundingTooltip = $tooltip[0].getBoundingClientRect();
-            var boundingContent = $content[0].getBoundingClientRect();
-
-            var hasSpaceRight = boundingTooltip.right + boundingContent.width < window.innerWidth - 20;
-
-            if (hasSpaceRight) {
-                $content.addClass('left');
-                $content.removeClass('right');
-            } else {
-                $content.addClass('right');
-                $content.removeClass('left');
             }
         }
     }

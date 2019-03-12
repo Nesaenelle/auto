@@ -9,118 +9,177 @@
     <!-- Fix for iOS Safari zooming bug -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0, user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 </head>
 
 <body>
-   
-            <header>
-                <div>
-                    <div class="logo"></div>
-                    <div>
-                    <div>Проверить авто</div>
-                    <div>Пользовательское соглашение</div>
-                    <div>О проекте</div>
+    <div id="app">
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <img src="img/icon.svg" alt="">
+                    <img src="img/logo.svg" alt="">
                 </div>
-                <button>ВОЙТИ</button>
+                <nav>
+                    <ul>
+                        <li><a href=""><span>Проверить авто</span></a></li>
+                        <li><a href=""><span>Пользовательское соглашение</span></a></li>
+                        <li><a href=""><span>О проекте</span></a></li>
+                    </ul>
+                </nav>
+                <div class="right unauthorized" v-if="!authorized">
+                    <button class="btn btn-login" @click="authorized = true">ВОЙТИ</button>
                 </div>
-            </header>
-            <main>
-                <h1>ПРОВЕРЬ ИСТОРИЮ АВТОМОБИЛЯ</h1>
-                <div class="search">
-                <div>
-                    <div>VIN</div>
-                    <div>Гос.номер</div>
-                    <form>
-                        <input type="text" placeholder="A 000 AA | 197   Как узнать гос.номер"  <i class=""></i>><button>ПРОВЕРИТЬ АВТО</button>
-                    </form>
-                </div>
-                </div>
-                <div class="bot-menu">
-                        <div>ДТП</div>
-                        <div class="icon">Реальный пробег</div>
-                        <div class="icon">Нахождение в розыске</div>
-                        <div class="icon">Залоги и ограничения</div>
-                        <div class="icon">Работа в такси</div>
-                </div>
-                <div class="example"> 
-                    <img src="" alt="">
-                    <div>Пример отчета PDF</div>
-                    <button>СКАЧАТЬ</button>
-                </div>
-                <div class="comment">
-                    <h2>ОТЗЫВЫ ПОЛЬЗОВАТЕЛЕЙ</h2>
-                    <div>
-                        <div>
-                                    <div class="photo"></div>
-                                    <div class="name">Sergo</div>
-                                    <div class="rate"></div>
-                                    <div class="date">Отзыв из App Store 20 апреля 2018</div>
-                                    <div class="text">“Все работает, спасибо Вам за замечательную программу, очень помогает в жизни, жду обещанные проверки по номеру авто”</div>
-                        </div>
-                        <div>
-                                    <div class="photo"></div>
-                                    <div class="name">Alex</div>
-                                    <div class="rate"></div>
-                                    <div class="date">Отзыв в PlayMarket 27 марта 2018</div>
-                                    <div class="text">“Отличное приложение, очень полезное и понятное. Разработчики общительные, с любой проблемой или не поняткой помогут) Вообщем приложению твердая пятерка, даже с плюсом!!)”</div>
-                        </div>
-                        <div>
-                            <div class="photo"></div>
-                            <div class="name">Mark</div>
-                            <div class="rate"></div>
-                            <div class="date">10 март 2018</div>
-                            <div class="text">“Ездил смотреть сегодня тиану, заказывал полный отчет по ней. Оказалось что машина не только была в ДТП, но и работа в такси. Я был очень удивлен)) Разработчикам спасибо!”</div>
-                        </div>
-                        <div class="scroll"></div>
+                <div class="right authorized" v-if="authorized">
+                    <div class="user-name">
+                        <img src="img/user.svg" alt="">Дима
+                        <div class="user-name__close" @click="authorized = false"><img src="img/close.svg" alt=""></div>
+                    </div>
+                    <div class="user-dropdown">
+                        <div class="user-dropdown__item">Дима</div>
+                        <div class="user-dropdown__item">Мои отчеты</div>
+                        <div class="user-dropdown__item">Профиль</div>
+                        <div class="user-dropdown__item">Выйти</div>
                     </div>
                 </div>
-            </main>
-            <footer>
-                <div>
-                    <div class="bott-logo"></div>
-                    <div class="appstore"></div>
-                    <div class="playmarket"></div>
-                    <div>Возникли вопросы?</div>
-                    <div>8 800 500 00 00</div>
-                </div>
-                <div class="arrowup"></div>
-            <div>
-                <div class="socials">
-                    <div class="bott-icon_vk"></div>
-                    <div class="bott-icon_youtube"></div>
-                    <div class="bott-icon_fb"></div>
-                    <div class="bott-icon_insta"></div>
-                </div>
-                <button>Свяжитесь с нами</button>
             </div>
-            <div class="">© Антиперекуп. Все права защищены.</div>
-            <div class="">Запрещено копирование, переработка и публикация информационных материалов сайта без письменного согласия владельца.</div>
-                
-            </footer>
-           
-<!--         <div class="modal" data-id="feedback">
-            <div class="modal-body">
-                <div class="modal-close" @click="closeModal()"></div>
-                <h2>Добавить отзыв</h2>
-                <form>
-                    <input type="text" placeholder="Ваше имя*" required  maxlength="40">
-                    <input type="text" placeholder="Город" required maxlength="40">
-                    <textarea placeholder="Текст отзыва*" required maxlength="200" required></textarea>
-                    <div class="annotation">Пункты обозначенные *, обязательны к заполнению.</div>
-                    <div class="g-recaptcha" data-sitekey="6LfiuZAUAAAAAD6BCbKl1nJ8XFmCZ46ItKDXbbQj"></div>
-                    <label class="checkbox">
-                        <input type="checkbox" required>
-                        <i></i>
-                        <span>Я согласен на обработку персональных данных</span>
-                    </label>
-                    <button class="btn" type="submit"><img data-src="img/comments-white.svg" alt=""> ОТПРАВИТЬ</button>
-                </form>
-            </div>
-        </div> -->
+        </header>
+        <main>
+            <section class="search">
+                <div class="container">
+                    <h1 class="title">ПРОВЕРЬ ИСТОРИЮ АВТОМОБИЛЯ</h1>
+                    <div class="search-block">
+                        <div class="search-block__tabs">
+                            <div class="search-block__tabs_item active">VIN</div>
+                            <div class="search-block__tabs_item">Гос.номер</div>
+                        </div>
+                        <form class="search-block__form" @submit.prevent="searchSubmit($event)">
+                            <input type="text" v-model="searchValue" placeholder="A 000 AA | 197" maxlength="10" name="number" required>
+                            <div class="search-block__form_number"><img src="img/question.svg" alt="">Как узнать гос.номер</div>
+                            <button class="search-block__form_btn">ПРОВЕРИТЬ АВТО</button>
+                        </form>
+                    </div>
+                    <div class="check-types">
+                        <div class="check-types__item"> <img src="img/truck-crash-car.svg" alt="">ДТП</div>
+                        <div class="check-types__item"> <img src="img/truck-crash-car.svg" alt="">Реальный пробег</div>
+                        <div class="check-types__item"> <img src="img/siren.svg" alt="">Нахождение в розыске</div>
+                        <div class="check-types__item"> <img src="img/pledge.svg" alt="">Залоги и ограничения</div>
+                        <div class="check-types__item"> <img src="img/truck-crash-car.svg" alt="">Работа в такси</div>
+                    </div>
+                </div>
+            </section>
+            <section class="report">
+                <div class="container">
+                    <div class="report-block">
+                        <img src="img/pdf.svg" alt="">
+                        <div class="report-block__title">Пример отчета PDF</div>
+                        <button class="btn btn-pdf">СКАЧАТЬ</button>
+                    </div>
+                </div>
+            </section>
+            <section class="feedback">
+                <div class="container">
+                    <h2 class="title">ОТЗЫВЫ ПОЛЬЗОВАТЕЛЕЙ</h2>
+                 
+                    <div class="slick-slider">
+                        <div class="slick">
+                            <div class="feedback-item">
 
+                                <div class="feedback-item__avatar"><img src="img/photo1.png" alt=""></div>
+                                <div class="feedback-item__wrapper">
+                                    <div class="feedback-item__name">Sergo</div>
+                                    <div class="rate"></div>
+                                    <div class="feedback-item__date">Отзыв из App Store 20 апреля 2018</div>
+                                </div>
+                                <div class="feedback-item__descr">“Все работает, спасибо Вам за замечательную программу, очень помогает в жизни, жду обещанные проверки по номеру авто”</div>
+                            </div>
+                            <div class="feedback-item">
+                                <div class="feedback-item__avatar"><img src="img/photo2.png" alt=""></div>
+                                <div class="feedback-item__wrapper">
+                                    <div class="feedback-item__name">Alex</div>
+                                    <div class="rate"></div>
+                                    <div class="feedback-item__date">Отзыв в PlayMarket 27 марта 2018</div>
+                                </div>
+                                <div class="feedback-item__descr">“Отличное приложение, очень полезное и понятное. Разработчики общительные, с любой проблемой или не поняткой помогут) Вообщем приложению твердая пятерка, даже с плюсом!!)”</div>
+                            </div>
+                            <div class="feedback-item">
+                                <div class="feedback-item__avatar"><img src="img/photo3.png" alt=""></div>
+                                <div class="feedback-item__wrapper">
+                                    <div class="feedback-item__name">Mark</div>
+                                    <div class="rate"></div>
+                                    <div class="feedback-item__date">10 март 2018</div>
+                                </div>
+                                <div class="feedback-item__descr">“Ездил смотреть сегодня тиану, заказывал полный отчет по ней. Оказалось что машина не только была в ДТП, но и работа в такси. Я был очень удивлен)) Разработчикам спасибо!”</div>
+                            </div>
+                            <div class="feedback-item">
+                                <div class="feedback-item__avatar"><img src="img/photo1.png" alt=""></div>
+                                <div class="feedback-item__wrapper">
+                                    <div class="feedback-item__name">Sergo</div>
+                                    <div class="rate"></div>
+                                    <div class="feedback-item__date">Отзыв из App Store 20 апреля 2018</div>
+                                </div>
+                                <div class="feedback-item__descr">“Все работает, спасибо Вам за замечательную программу, очень помогает в жизни, жду обещанные проверки по номеру авто”</div>
+                            </div>
+                            <div class="feedback-item">
+                                <div class="feedback-item__avatar"><img src="img/photo2.png" alt=""></div>
+                                <div class="feedback-item__wrapper">
+                                    <div class="feedback-item__name">Alex</div>
+                                    <div class="rate"></div>
+                                    <div class="feedback-item__date">Отзыв в PlayMarket 27 марта 2018</div>
+                                </div>
+                                <div class="feedback-item__descr">“Отличное приложение, очень полезное и понятное. Разработчики общительные, с любой проблемой или не поняткой помогут) Вообщем приложению твердая пятерка, даже с плюсом!!)”</div>
+                            </div>
+                            <div class="feedback-item">
+                                <div class="feedback-item__avatar"><img src="img/photo3.png" alt=""></div>
+                                <div class="feedback-item__wrapper">
+                                    <div class="feedback-item__name">Mark</div>
+                                    <div class="rate"></div>
+                                    <div class="feedback-item__date">10 март 2018</div>
+                                </div>
+                                <div class="feedback-item__descr">“Ездил смотреть сегодня тиану, заказывал полный отчет по ней. Оказалось что машина не только была в ДТП, но и работа в такси. Я был очень удивлен)) Разработчикам спасибо!”</div>
+                            </div>
+                        </div>
+                        <div class="slick-controls-wrapper">
+                            <button class="slick-prev slick-arrow"></button>
+                            <button class="slick-next slick-arrow"></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="container">
+                <div>
+                    <div class="logo">
+                        <img src="img/icon.svg" alt="">
+                        <img src="img/logo.svg" alt="">
+                    </div>
+                    <div class="appstore"><img src="img/app-store.png" alt=""></div>
+                    <div class="playmarket"><img src="img/google-play.png" alt=""></div>
+                    <div class="questions">Возникли вопросы?</div>
+                    <div class="phone-number">8 800 500 00 00</div>
+                    <div class="go-top" @click="goTop()"></div>
+                </div>
+                <div>
+                    <div class="socials">
+                        <div class="bott-icon_vk"><img src="img/vk-social-logotype.svg" alt=""></div>
+                        <div class="bott-icon_youtube"><img src="img/youtube-symbol.svg" alt=""></div>
+                        <div class="bott-icon_fb"><img src="img/facebook-logo-button.svg" alt=""></div>
+                        <div class="bott-icon_insta"><img src="img/instagram-logo.svg" alt=""></div>
+                    </div>
+                    <button class="btn btn-footer">Свяжитесь с нами</button>
+                </div>
+                <div>
+                    <div class="copyright">© Антиперекуп. Все права защищены.</div>
+                    <div class="copyright">Запрещено копирование, переработка и публикация информационных материалов сайта без письменного согласия владельца.</div>
+                </div>
+    
+            </div>
+        </footer>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.4/dist/vue.min.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <script src="public/app.js"></script>
