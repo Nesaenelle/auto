@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Sinergin</title>
+    <link rel="stylesheet" href="public/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
+    <!-- Fix for iOS Safari zooming bug -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+</head>
+
+<body>
+    <div id="app">
+        <div class="main-wrapper">
+            <header>
+                <div class="container">
+                    <!-- <a class="logo" href="#home" @click.prevent="navigation($event)">СИНЕРГИН <sub>®</sub></a> -->
+                    <nav>
+                        <ul>
+ <!--                            <li><a href="#reasons" @click.prevent="navigation($event)"> <span> ПРИЧИНЫ СТАРЕНИЯ </span></a></li>
+                            <li><a href="#solution" @click.prevent="navigation($event)"> <span> РЕШЕНИЕ</span></a></li>
+                            <li><a href="#sinergin" @click.prevent="navigation($event)"> <span> СИНЕРГИН</span></a></li>
+                            <li><a href="#efficiency" @click.prevent="navigation($event)"> <span> ДОКАЗАННАЯ
+                                        ЭФФЕКТИВНОСТЬ</span></a></li>
+                            <li><a href="#feedback" @click.prevent="navigation($event)"> <span> ОТЗЫВЫ</span></a></li> -->
+                        </ul>
+                    </nav>
+                    <div class="right">
+<!--                         <button class="btn" @click.stop="openModal('pharmacy')">ГДЕ КУПИТЬ?</button>
+                        <div class="burger" @click.stop="toggleMenu()" :class="{opened: showMenu}">
+                            <span></span>
+                        </div>
+                        <div class="dropdown-menu" :class="{opened: showMenu}" ref="menu">
+                            <button class="btn" @click.stop="openModal('pharmacy')">ГДЕ КУПИТЬ?</button>
+                            <nav>
+                                <ul>
+                                    <li><a href="#reasons" @click.prevent="navigation($event)"> <span> ПРИЧИНЫ СТАРЕНИЯ
+                                            </span></a></li>
+                                    <li><a href="#solution" @click.prevent="navigation($event)"> <span> РЕШЕНИЕ</span></a></li>
+                                    <li><a href="#sinergin" @click.prevent="navigation($event)"> <span> СИНЕРГИН</span></a></li>
+                                    <li><a href="#efficiency" @click.prevent="navigation($event)"> <span> ДОКАЗАННАЯ
+                                                ЭФФЕКТИВНОСТЬ</span></a></li>
+                                    <li><a href="#feedback" @click.prevent="navigation($event)"> <span> ОТЗЫВЫ</span></a></li>
+                                </ul>
+                            </nav>
+                        </div> -->
+                    </div>
+                </div>
+            </header>
+            <main>
+
+            </main>
+            <footer>
+                <div class="container">
+
+                </div>
+            </footer>
+            <!-- <div class="go-top" @click="goTop()" :class="{ 'on-top': onTop }"></div> -->
+        </div>
+<!--         <div class="modal" data-id="feedback">
+            <div class="modal-body">
+                <div class="modal-close" @click="closeModal()"></div>
+                <h2>Добавить отзыв</h2>
+                <form>
+                    <input type="text" placeholder="Ваше имя*" required  maxlength="40">
+                    <input type="text" placeholder="Город" required maxlength="40">
+                    <textarea placeholder="Текст отзыва*" required maxlength="200" required></textarea>
+                    <div class="annotation">Пункты обозначенные *, обязательны к заполнению.</div>
+                    <div class="g-recaptcha" data-sitekey="6LfiuZAUAAAAAD6BCbKl1nJ8XFmCZ46ItKDXbbQj"></div>
+                    <label class="checkbox">
+                        <input type="checkbox" required>
+                        <i></i>
+                        <span>Я согласен на обработку персональных данных</span>
+                    </label>
+                    <button class="btn" type="submit"><img data-src="img/comments-white.svg" alt=""> ОТПРАВИТЬ</button>
+                </form>
+            </div>
+        </div> -->
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.4/dist/vue.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="public/app.js"></script>
+</body>
+
+</html>
