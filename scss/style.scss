@@ -104,12 +104,12 @@ section.search {
         font-size: 50px;
         letter-spacing: 0.02em;
         text-transform: uppercase;
-
+        font-weight: 800;
         color: #FFFFFF;
         position: relative;
 
         &:after {
-            margin: 31px auto 0;
+            margin: 29px auto 0;
             display: block;
             content: "";
             height: 6px;
@@ -155,11 +155,11 @@ section.search {
 
         &__form {
             display: flex;
-            margin-top: 25px;
+            margin-top: 20px;
 
             input {
                 height: 50px;
-                width: calc(100% - 200px - 240px);
+                width: calc(100% - 200px - 200px);
                 border-radius: 50px 0px 0px 50px;
                 border: none;
                 outline: none;
@@ -201,14 +201,15 @@ section.search {
             }
 
             &_number {
-                width: 240px;
+                width: 200px;
                 align-items: center;
                 background: #fff;
                 color: #B0B0B0;
                 display: flex;
-                justify-content: center;
+                padding-left: 4px;
+                // justify-content: center;
                 font-size: 14px;
-
+    
                 img {
                     margin-right: 10px;
                 }
@@ -315,7 +316,7 @@ section.feedback {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        margin: 20px;
+        margin: 18px 15px;
 
         @media screen and (max-width: 1280px) {
             height: 280px;
@@ -330,6 +331,7 @@ section.feedback {
             display: flex;
             flex-wrap: wrap;
             width: calc(100% - 90px);
+            align-items: flex-start;
         }
 
         &__avatar {
@@ -344,11 +346,26 @@ section.feedback {
             font-weight: 600;
             color: #000000;
             width: 100%;
+            margin: 13px 0px 0 3px;
         }
 
         &__date {
             font-size: 12px;
             color: #000000;
+        }
+
+        &__rating {
+            width: 100%;
+            span{
+                display: inline-block;
+                background: url(../img/star.svg);
+                width: 20px;
+                height: 20px;
+                margin-right: 3px;
+                &.filled {
+                    background: url(../img/starfull.svg);
+                }
+            }
         }
 
         &__descr {
