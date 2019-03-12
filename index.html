@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Sinergin</title>
+    <title>Avto</title>
     <link rel="stylesheet" href="public/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
     <!-- Fix for iOS Safari zooming bug -->
@@ -12,53 +12,92 @@
 </head>
 
 <body>
-    <div id="app">
-        <div class="main-wrapper">
+   
             <header>
-                <div class="container">
-                    <!-- <a class="logo" href="#home" @click.prevent="navigation($event)">СИНЕРГИН <sub>®</sub></a> -->
-                    <nav>
-                        <ul>
- <!--                            <li><a href="#reasons" @click.prevent="navigation($event)"> <span> ПРИЧИНЫ СТАРЕНИЯ </span></a></li>
-                            <li><a href="#solution" @click.prevent="navigation($event)"> <span> РЕШЕНИЕ</span></a></li>
-                            <li><a href="#sinergin" @click.prevent="navigation($event)"> <span> СИНЕРГИН</span></a></li>
-                            <li><a href="#efficiency" @click.prevent="navigation($event)"> <span> ДОКАЗАННАЯ
-                                        ЭФФЕКТИВНОСТЬ</span></a></li>
-                            <li><a href="#feedback" @click.prevent="navigation($event)"> <span> ОТЗЫВЫ</span></a></li> -->
-                        </ul>
-                    </nav>
-                    <div class="right">
-<!--                         <button class="btn" @click.stop="openModal('pharmacy')">ГДЕ КУПИТЬ?</button>
-                        <div class="burger" @click.stop="toggleMenu()" :class="{opened: showMenu}">
-                            <span></span>
-                        </div>
-                        <div class="dropdown-menu" :class="{opened: showMenu}" ref="menu">
-                            <button class="btn" @click.stop="openModal('pharmacy')">ГДЕ КУПИТЬ?</button>
-                            <nav>
-                                <ul>
-                                    <li><a href="#reasons" @click.prevent="navigation($event)"> <span> ПРИЧИНЫ СТАРЕНИЯ
-                                            </span></a></li>
-                                    <li><a href="#solution" @click.prevent="navigation($event)"> <span> РЕШЕНИЕ</span></a></li>
-                                    <li><a href="#sinergin" @click.prevent="navigation($event)"> <span> СИНЕРГИН</span></a></li>
-                                    <li><a href="#efficiency" @click.prevent="navigation($event)"> <span> ДОКАЗАННАЯ
-                                                ЭФФЕКТИВНОСТЬ</span></a></li>
-                                    <li><a href="#feedback" @click.prevent="navigation($event)"> <span> ОТЗЫВЫ</span></a></li>
-                                </ul>
-                            </nav>
-                        </div> -->
-                    </div>
+                <div>
+                    <div class="logo"></div>
+                    <div>
+                    <div>Проверить авто</div>
+                    <div>Пользовательское соглашение</div>
+                    <div>О проекте</div>
+                </div>
+                <button>ВОЙТИ</button>
                 </div>
             </header>
             <main>
-
+                <h1>ПРОВЕРЬ ИСТОРИЮ АВТОМОБИЛЯ</h1>
+                <div class="search">
+                <div>
+                    <div>VIN</div>
+                    <div>Гос.номер</div>
+                    <form>
+                        <input type="text" placeholder="A 000 AA | 197   Как узнать гос.номер"  <i class=""></i>><button>ПРОВЕРИТЬ АВТО</button>
+                    </form>
+                </div>
+                </div>
+                <div class="bot-menu">
+                        <div>ДТП</div>
+                        <div class="icon">Реальный пробег</div>
+                        <div class="icon">Нахождение в розыске</div>
+                        <div class="icon">Залоги и ограничения</div>
+                        <div class="icon">Работа в такси</div>
+                </div>
+                <div class="example"> 
+                    <img src="" alt="">
+                    <div>Пример отчета PDF</div>
+                    <button>СКАЧАТЬ</button>
+                </div>
+                <div class="comment">
+                    <h2>ОТЗЫВЫ ПОЛЬЗОВАТЕЛЕЙ</h2>
+                    <div>
+                        <div>
+                                    <div class="photo"></div>
+                                    <div class="name">Sergo</div>
+                                    <div class="rate"></div>
+                                    <div class="date">Отзыв из App Store 20 апреля 2018</div>
+                                    <div class="text">“Все работает, спасибо Вам за замечательную программу, очень помогает в жизни, жду обещанные проверки по номеру авто”</div>
+                        </div>
+                        <div>
+                                    <div class="photo"></div>
+                                    <div class="name">Alex</div>
+                                    <div class="rate"></div>
+                                    <div class="date">Отзыв в PlayMarket 27 марта 2018</div>
+                                    <div class="text">“Отличное приложение, очень полезное и понятное. Разработчики общительные, с любой проблемой или не поняткой помогут) Вообщем приложению твердая пятерка, даже с плюсом!!)”</div>
+                        </div>
+                        <div>
+                            <div class="photo"></div>
+                            <div class="name">Mark</div>
+                            <div class="rate"></div>
+                            <div class="date">10 март 2018</div>
+                            <div class="text">“Ездил смотреть сегодня тиану, заказывал полный отчет по ней. Оказалось что машина не только была в ДТП, но и работа в такси. Я был очень удивлен)) Разработчикам спасибо!”</div>
+                        </div>
+                        <div class="scroll"></div>
+                    </div>
+                </div>
             </main>
             <footer>
-                <div class="container">
-
+                <div>
+                    <div class="bott-logo"></div>
+                    <div class="appstore"></div>
+                    <div class="playmarket"></div>
+                    <div>Возникли вопросы?</div>
+                    <div>8 800 500 00 00</div>
                 </div>
+                <div class="arrowup"></div>
+            <div>
+                <div class="socials">
+                    <div class="bott-icon_vk"></div>
+                    <div class="bott-icon_youtube"></div>
+                    <div class="bott-icon_fb"></div>
+                    <div class="bott-icon_insta"></div>
+                </div>
+                <button>Свяжитесь с нами</button>
+            </div>
+            <div class="">© Антиперекуп. Все права защищены.</div>
+            <div class="">Запрещено копирование, переработка и публикация информационных материалов сайта без письменного согласия владельца.</div>
+                
             </footer>
-            <!-- <div class="go-top" @click="goTop()" :class="{ 'on-top': onTop }"></div> -->
-        </div>
+           
 <!--         <div class="modal" data-id="feedback">
             <div class="modal-body">
                 <div class="modal-close" @click="closeModal()"></div>
