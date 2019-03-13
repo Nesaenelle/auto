@@ -143,7 +143,8 @@ var app = new Vue({
         showMenu: false,
         onTop: false,
         authorized: false,
-        searchValue: ''
+        searchValue: '',
+        invalidNumber: false
     },
     mounted: function mounted() {
         var _this = this;
@@ -228,13 +229,12 @@ var app = new Vue({
             infinite: true,
             speed: 300,
             slidesToShow: 3,
-            // appendDots: '.slick-dots-wrapper',
+
             prevArrow: '.slick-prev',
             nextArrow: '.slick-next',
             responsive: [{
                 breakpoint: 1280,
                 settings: {
-                    // arrows: false,
                     centerMode: true,
                     slidesToShow: 2
                 }
@@ -250,18 +250,14 @@ var app = new Vue({
             }]
         });
 
-        // window.addEventListener('resize', () => {
-        //     $('.efficiency-tooltip').each((i, element) => {
-        //         this.tooltipPosition(element);
-        //     });
-        // });
-
-        // $('.efficiency-tooltip').each((i, element) => {
-        //     this.tooltipPosition(element);
-        // });
-        // $('.efficiency-tooltip').on('mouseenter', (e) => {
-        //     this.tooltipPosition(e.currentTarget);
-        // });
+        $('.mask-input').mask('Z 000 ZZ | 000', {
+            translation: {
+                'Z': {
+                    pattern: /[A-Za-z]/,
+                    optional: false
+                }
+            }
+        });
     },
 
     methods: {
@@ -278,28 +274,13 @@ var app = new Vue({
                 $('header').removeClass('fixed');
             }
         },
+        searchValueChange: function searchValueChange() {
+            this.searchValue = this.searchValue.toUpperCase();
+            this.invalidNumber = this.searchValue.length < 14;
+        },
         searchSubmit: function searchSubmit(e) {
             this.searchValue;
         },
-
-        // toggleAccordeonItem(e) {
-        //     let target = e.currentTarget.parentNode;
-        //     $(target).find('.hypothesis-list__item_text').stop().slideToggle(300);
-        //     if (target.classList.contains('active')) {
-        //         target.classList.remove('active');
-        //     } else {
-        //         target.classList.add('active');
-        //     }
-        // },
-        // toggleReferenceItem(e) {
-        //     let target = e.currentTarget;
-        //     $(target).next().stop().slideToggle(300);
-        //     if (target.parentNode.classList.contains('active')) {
-        //         target.parentNode.classList.remove('active');
-        //     } else {
-        //         target.parentNode.classList.add('active');
-        //     }
-        // },
         navigation: function navigation(e) {
             e.preventDefault();
             var id = e.currentTarget.getAttribute('href').substr(1);

@@ -55,7 +55,36 @@
                             <div class="search-block__tabs_item">Гос. номер</div>
                         </div>
                         <form class="search-block__form" @submit.prevent="searchSubmit($event)">
-                            <input type="text" v-model="searchValue" placeholder="A 000 AA | 197" maxlength="10" name="number" required>
+                            <div class="tooltip tooltip-error" :class="{active: invalidNumber}">
+                                <div class="img">
+                                    <img src="img/red-cross.svg" alt="">
+                                </div>
+                                Введен недопустимый символ
+                            </div>
+
+                            <input class="mask-input" type="text" v-model="searchValue" @input="searchValueChange()" placeholder="A 000 AA | 197" maxlength="10" name="number" required>
+
+                            <div class="tooltip tooltip-types">
+                               <div class="tooltip__title">
+                                    <img src="img/exclamation-mark-inside-a-circle.svg" alt="">
+                                   Вы можете проверить гостномер следующих типов:
+                               </div>
+                               <div class="tooltip__list">
+                                   <div class="tooltip__example">
+                                       <div>А 000 АА</div><div> 197</div>
+                                   </div>
+                                   <div class="tooltip__example">
+                                       <div>А 000 АА</div><div> 197</div>
+                                   </div>
+                                   <div class="tooltip__example">
+                                       <div>А 000 АА</div><div> 197</div>
+                                   </div>
+                                   <div class="tooltip__example">
+                                       <div>А 000 АА</div><div> 197</div>
+                                   </div>
+                               </div>
+                            </div>
+
                             <div class="search-block__form_number"><img src="img/question.svg" alt="">
                                 Как узнать гос. номер
                                 <div class="tooltip tooltip-number">
@@ -73,6 +102,9 @@
                             </div>
                             <button class="search-block__form_btn">ПРОВЕРИТЬ АВТО</button>
                         </form>
+                    </div>
+                    <div class="go-bottom">
+                        <img src="img/" alt="">
                     </div>
                     <div class="check-types">
                         <div class="check-types__item"> <img src="img/truck-crash-car.svg" alt="">ДТП</div>
@@ -196,7 +228,7 @@
                     </div>
          
                     <div class="questions">Возникли вопросы?</div>
-                    <div class="phone-number">8 800 500 00 00</div>
+                    <div class="phone-number"><img src="img/phone-receiver.svg" alt="">8 800 500 00 00</div>
                     <div class="go-top" @click="goTop()"></div>
                 </div>
                 <div>
@@ -212,15 +244,16 @@
                 <div>
                     <div class="copyright">© Антиперекуп. Все права защищены.</div>
                     <div class="copyright">Запрещено копирование, переработка и публикация информационных материалов сайта без письменного согласия владельца.</div>
+                    <div class="copyright-mobile">©2007 - 2018 Все права защищены </div>
                 </div>
     
             </div>
         </footer>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.4/dist/vue.min.js"></script>
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
     <script src="public/app.js"></script>
 </body>
 
