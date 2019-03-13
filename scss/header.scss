@@ -28,6 +28,9 @@ header {
       width: auto;
       color: #fff;
     }
+    @media screen and (max-width: 375px) {
+      font-size: 12px;
+    }
   }
 
   &.fixed {
