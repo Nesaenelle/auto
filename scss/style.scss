@@ -182,6 +182,7 @@ section.search {
                 height: 36px;
                 display: flex;
                 justify-content: center;
+                align-items: center;
                 border-radius: 100%;
                 border: 1px solid #FF6465;
             }
@@ -468,11 +469,11 @@ section.search {
                 @media screen and (max-width: 720px) {
                     font-size: 0;
                     width: 100px;
-                    background: url(../img/search.svg) no-repeat #F9E107;
+                    background: url(../img/magnifying-glass.png) no-repeat #F9E107;
                     background-position: center;
 
                     &:hover {
-                        background: url(../img/search.svg) no-repeat darken(#F9E107, 5%);
+                        background: url(../img/magnifying-glass.png) no-repeat darken(#F9E107, 5%);
                         background-position: center;
                     }
                 }
@@ -750,13 +751,13 @@ section.feedback {
             }
             span {
                 display: inline-block;
-                background: url(../img/star.svg);
+                background: url(../img/star.svg) no-repeat;
                 width: 20px;
                 height: 20px;
                 margin-right: 3px;
 
                 &.filled {
-                    background: url(../img/starfull.svg);
+                    background: url(../img/starfull.svg) no-repeat;
                 }
             }
         }
