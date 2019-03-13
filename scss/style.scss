@@ -22,7 +22,7 @@ body {
 .container {
     width: 100%;
     max-width: 1304px;
-    min-width: 300px;
+    min-width: 320px;
     margin: auto;
     padding: 0 40px;
 
@@ -243,6 +243,11 @@ section.search {
                 flex-basis: 100px;
                 max-width: 100px;
                 margin-bottom: 10px;
+                @media screen and (max-width: 320px) {
+                    &:nth-child(3),  &:nth-child(4){
+                        display: none;
+                    }
+                }
 
                 >div {
                     padding: 7px 5px;
@@ -264,20 +269,14 @@ section.search {
             @media screen and (max-width: 720px) {
                 right: 0;
                 left: auto;
-                &:after {
-                    display: none;
-                }
+
             }
 
             @media screen and (max-width: 600px) {
-                width: 250px;
+                // width: 250px;
             }
-            @media screen and (max-width: 375px) {
-                left: -160px;
-            }
-
-            @media screen and (max-width: 320px) {
-                left: -137px;
+            @media screen and (max-width: 480px) {
+                width: 100%;
             }
 
             &:after {
@@ -291,6 +290,13 @@ section.search {
                 position: absolute;
                 bottom: -10px;
                 left: 35%;
+                @media screen and (max-width: 720px) {
+                    left: auto;
+                    right: 120px;
+                }   
+                @media screen and (max-width: 480px) {
+                    right: 100px;
+                }
             }
 
             &>div {
@@ -298,17 +304,23 @@ section.search {
 
                 &:first-child {
                     padding: 21px 14px;
-                    // font-size: 0;
-                    @media screen and (max-width: 600px) {
-                        width: 100%;
+                    @media screen and (max-width: 375px) {
+                        padding: 8px 10px;
                     }
+                    // font-size: 0;
+                    // @media screen and (max-width: 600px) {
+                    //     width: 100%;
+                    // }
                 }
 
                 &:last-child {
                     border-radius: 0 20px 20px 0;
                     overflow: hidden;
-                    @media screen and (max-width: 600px) {
-                        display: none;
+                    // @media screen and (max-width: 600px) {
+                    //     display: none;
+                    // }
+                    img {
+                        width: 100%;
                     }
                 }
 
@@ -330,6 +342,10 @@ section.search {
                     position: static;
                     margin-top: 10px;
                 }
+
+                @media screen and (max-width: 375px) {
+                    font-size: 12px;
+                }
             }
 
             .tooltip__descr {
@@ -338,6 +354,9 @@ section.search {
                 font-size: 12px;
 
                 color: #000000;
+                @media screen and (max-width: 375px) {
+                    line-height: 14px;
+                }
             }
 
             .tooltip__title {
@@ -503,7 +522,11 @@ section.search {
 
                 @media screen and (max-width: 720px) {
                     font-size: 0;
-                    width: 40px;
+                    width: 40px; position: static;
+                }
+
+                @media screen and (max-width: 600px) {
+                   
                 }
 
                 img {

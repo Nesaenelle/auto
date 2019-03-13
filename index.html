@@ -18,21 +18,6 @@
             <div class="container">
                 <div class="burger" @click.stop="toggleMenu()" :class="{opened: showMenu}"><span></span></div>
                 <div class="dropdown-menu" :class="{opened: showMenu}" ref="menu">
-                    <div class="right unauthorized" v-if="!authorized">
-                        <button class="btn btn-login" @click="authorized = true">ВОЙТИ</button>
-                    </div>
-                    <div class="right authorized" v-if="authorized">
-                        <div class="user-name">
-                            <img src="img/user.svg" alt="">Дима
-                            <div class="user-name__close" @click="authorized = false"><img src="img/close.svg" alt=""></div>
-                        </div>
-                        <div class="user-dropdown">
-                            <div class="user-dropdown__item">Дима</div>
-                            <div class="user-dropdown__item">Мои отчеты</div>
-                            <div class="user-dropdown__item">Профиль</div>
-                            <div class="user-dropdown__item">Выйти</div>
-                        </div>
-                    </div>
                     <nav>
                         <ul>
                             <li><a href="" class="active"><span>Проверить авто</span></a></li>
@@ -64,7 +49,7 @@
                         <div class="user-dropdown__item">Дима</div>
                         <div class="user-dropdown__item">Мои отчеты</div>
                         <div class="user-dropdown__item">Профиль</div>
-                        <div class="user-dropdown__item">Выйти</div>
+                        <div class="user-dropdown__item" @click="authorized = false">Выйти</div>
                     </div>
                 </div>
             </div>

@@ -239,7 +239,7 @@ var app = new Vue({
         },
         searchValueChange: function searchValueChange() {
             this.searchValue = this.searchValue.toUpperCase();
-            this.invalidNumber = this.searchValue.length < 14;
+            this.invalidNumber = this.searchValue.length === 0 ? false : this.searchValue.length < 14;
         },
         searchSubmit: function searchSubmit(e) {
             this.searchValue;
