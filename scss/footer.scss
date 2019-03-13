@@ -3,22 +3,36 @@ footer {
     background: #1C1C1C;
 
     .container {
+      padding: 0 188px 0 40px; 
         &>div {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
             position: relative;
+            align-items: center;
+            &:nth-child(2) {
+              padding: 6px 0 0 0;
+              & > div:first-child {
+                width: 129px;
+              }
+            }
+            &:nth-child(3) {
+              margin-top: -5px;
+            }
         }
     }
-
+    .logo {
+      width: 253px;
+    }
     .questions {
         font-size: 16px;
         color: #FFFFFF;
+        font-weight: 200;
+        letter-spacing: 1px;
     }
 
     .phone-number {
         font-size: 24px;
-
         color: #FFFFFF;
     }
 
@@ -28,30 +42,41 @@ footer {
         font-size: 14px;
         color: #FFFFFF;
         width: 100%;
-        margin-top: 15px;
-        font-weight: 400;
+        margin-bottom: 15px;
+        // font-weight: 400;
+        font-weight: 200;
+        letter-spacing: 0.5px;
     }
 
     .socials {
-        width: 200px;
+        width: 205px;
         display: flex;
         justify-content: space-between;
     }
 
+    .app {
+      display: flex;
+      width: 358px;
+      justify-content: space-between;
+      // .appstore, .playmarket {
+        margin-top: 18px;
+      // }
+    }
+
     .go-top {
-        background: none;
-        border-radius: 10px;
-        border: 1px solid #fff;
-        width: 45px;
-        height: 45px;
-        position: relative;
-        position: absolute;
-        bottom: -20px;
-        right: -80px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      background: none;
+      border-radius: 4px;
+      border: 1px solid #fff;
+      width: 40px;
+      height: 38px;
+      position: relative;
+      position: absolute;
+      bottom: -10px;
+      right: -83px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
         @media screen and (max-width: 1420px) {
             display: none;
@@ -60,13 +85,13 @@ footer {
         &:after {
             content: '';
             border: solid #fff;
-            border-width: 0 2px 2px 0;
+            border-width: 0 1px 1px 0;
             display: inline-block;
-            padding: 6px;
+            padding: 7px;
             display: block;
             transform: rotate(-135deg);
             -webkit-transform: rotate(-135deg);
-            margin-top: 6px;
+            margin-top: 7px;
         }
     }
 }

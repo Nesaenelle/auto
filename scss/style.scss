@@ -39,18 +39,6 @@ body {
 
 main {
     overflow: hidden;
-
-    // @media screen and (max-width: 1200px) {
-    //     padding-top: 120px;
-    // }
-
-    // @media screen and (max-width: 600px) {
-    //     padding-top: 90px;
-    // }
-
-    // @media screen and (max-width: 480px) {
-    //     padding-top: 70px;
-    // }
 }
 
 sub,
@@ -69,7 +57,7 @@ section {}
     align-items: center;
 
     img {
-        margin-right: 10px;
+        margin-right: 5px;
     }
 }
 
@@ -81,6 +69,12 @@ section.search {
     background-size: cover;
     background-position: center;
     position: relative;
+
+    @media screen and (max-width: 1280px) {
+        height: 100vh;
+        padding: 0;
+        display: flex;
+    }
 
     &:before {
         content: '';
@@ -110,6 +104,7 @@ section.search {
 
         @media screen and (max-width: 1280px) {
             font-size: 42px;
+            line-height: 1.5em;
         }
 
         @media screen and (max-width: 980px) {
@@ -121,7 +116,7 @@ section.search {
         }
 
         &:after {
-            margin: 29px auto 0;
+            margin: 27px auto 0;
             display: block;
             content: "";
             height: 6px;
@@ -132,20 +127,23 @@ section.search {
             @media screen and (max-width: 980px) {
                 width: 135px;
                 height: 4px;
-            }   
+            }
         }
     }
 
     .search-block {
         width: 63%;
         margin: 63px auto 0;
+
         @media screen and (max-width: 1280px) {
             width: 590px;
             max-width: 590px;
         }
-   @media screen and (max-width: 720px) {
-    width: 100%;
-   }
+
+        @media screen and (max-width: 720px) {
+            width: 100%;
+        }
+
         &__tabs {
             display: flex;
 
@@ -191,6 +189,14 @@ section.search {
                 font-size: 16px;
                 font-family: "HelveticaNeueCyr", sans-serif;
 
+                @media screen and (max-width: 720px) {
+                    width: calc(100% - 40px - 100px);
+                }
+
+                @media screen and (max-width: 480px) {
+                    width: calc(100% - 40px - 80px);
+                }
+
                 &::-webkit-input-placeholder {
                     /* Chrome/Opera/Safari */
                     color: #B0B0B0;
@@ -221,6 +227,24 @@ section.search {
                 outline: none;
                 font-size: 16px;
                 font-family: "HelveticaNeueCyr", sans-serif;
+                transition: 0.2s;
+                &:hover {
+                    background: darken(#F9E107, 5%);
+                }
+                @media screen and (max-width: 720px) {
+                    font-size: 0;
+                    width: 100px;
+                    background: url(../img/search.svg) no-repeat #F9E107;
+                    background-position: center;
+                    &:hover {
+                        background: url(../img/search.svg) no-repeat darken(#F9E107, 5%);
+                        background-position: center;
+                    }
+                }
+
+                @media screen and (max-width: 480px) {
+                    width: 80px;
+                }
             }
 
             &_number {
@@ -233,8 +257,17 @@ section.search {
                 // justify-content: center;
                 font-size: 14px;
 
+                @media screen and (max-width: 720px) {
+                    font-size: 0;
+                    width: 40px;
+                }
+
                 img {
                     margin-right: 10px;
+
+                    @media screen and (max-width: 720px) {
+                        margin-right: 0;
+                    }
                 }
             }
         }
@@ -243,10 +276,10 @@ section.search {
     .check-types {
         display: flex;
         justify-content: space-between;
-        width: 80%;
+        width: 73%;
         margin: 167px auto 0;
 
-        @media screen and (max-width: 1200px) {
+        @media screen and (max-width: 1280px) {
             display: none;
         }
 
@@ -257,7 +290,7 @@ section.search {
             font-size: 14px;
 
             img {
-                margin-right: 5px;
+                margin-right: 8px;
             }
         }
     }
@@ -275,12 +308,19 @@ section.report {
     }
 
     .report-block {
-        padding: 40px 10px;
+        padding: 40px 10px 42px 10px;
         width: 369px;
         background: #FFFFFF;
         box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
         text-align: center;
+
+
+
+        @media screen and (max-width: 720px) {
+            // padding: 30px 10px 40px 10px;
+            width: 300px;
+        }
 
         &__title {
             font-family: HelveticaNeueCyr;
@@ -288,31 +328,49 @@ section.report {
             font-size: 26px;
             margin: 20px 0;
 
+            @media screen and (max-width: 720px) {
+                font-size: 14px;
+            }
+
             &:after {
-                margin: 15px auto 70px;
+                margin: 17px auto 55px;
                 display: block;
                 content: "";
                 height: 6px;
                 background: #F9E107;
                 border-radius: 2px;
                 width: 170px;
+
+                @media screen and (max-width: 720px) {
+                    width: 101px;
+                    height: 4px;
+                    margin: 15px auto 40px;
+                }
             }
         }
 
         img {
             max-width: 128px;
             width: 100%;
+
+            @media screen and (max-width: 720px) {
+                max-width: 89px;
+            }
         }
 
     }
 }
 
 section.feedback {
-    padding: 100px 0;
+    padding: 73px 0 99px 0;
     background: #F6F6F6;
 
     @media screen and (max-width: 720px) {
         padding: 50px 0;
+    }
+
+    .container {
+        padding: 0 55px;
     }
 
     .title {
@@ -327,7 +385,7 @@ section.feedback {
         position: relative;
 
         &:after {
-            margin: 31px auto;
+            margin: 26px auto 41px;
             display: block;
             content: "";
             height: 6px;
@@ -359,10 +417,10 @@ section.feedback {
         }
 
         &__wrapper {
-            display: flex;
-            flex-wrap: wrap;
+            // display: flex;
+            // flex-wrap: wrap;
             width: calc(100% - 90px);
-            align-items: flex-start;
+            // align-items: flex-start;
         }
 
         &__avatar {
@@ -383,10 +441,12 @@ section.feedback {
         &__date {
             font-size: 12px;
             color: #000000;
+            margin-left: 3px;
         }
 
         &__rating {
             width: 100%;
+            margin-top: 10px;
 
             span {
                 display: inline-block;
@@ -414,20 +474,20 @@ section.feedback {
 
 .slick-slider {
     .slick-controls-wrapper {
-        width: 350px;
+        width: 296px;
         left: 0;
         right: 0;
-        margin: 30px auto;
+        margin: 34px auto 0;
         position: relative;
     }
 
     .slick-dots {
-        width: 300px;
+        width: 250px;
         left: 0;
         right: 0;
         margin: auto;
         position: absolute;
-        top: calc(100% + 33px);
+        top: calc(100% + 38px);
         display: block;
         padding: 0;
         list-style: none;
@@ -439,13 +499,16 @@ section.feedback {
             display: inline-block;
             width: 20px;
             height: 20px;
-            margin: 0 5px;
+            margin: 0 10px;
             padding: 0;
             cursor: pointer;
 
             &.slick-active {
                 button {
                     background: #FFFF00;
+                    width: 8px;
+                    height: 8px;
+                    padding: 3px;
                 }
             }
 
@@ -455,6 +518,7 @@ section.feedback {
                 display: block;
                 width: 10px;
                 height: 10px;
+                margin: auto;
                 padding: 5px;
                 cursor: pointer;
                 color: transparent;
@@ -472,6 +536,12 @@ section.feedback {
         border: none;
         top: 0;
         bottom: 0;
+        cursor: pointer;
+        outline: none;
+        transition: 0.2s;
+        &:hover {
+            transform: scale(1.1);
+        }
     }
 
     .slick-prev.slick-arrow {

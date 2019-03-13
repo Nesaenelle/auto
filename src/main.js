@@ -172,7 +172,7 @@ var app = new Vue({
             this.showMenu = !this.showMenu;
         },
         headerCheck() {
-            if (document.documentElement.scrollTop > 150) {
+            if (document.documentElement.scrollTop > 100) {
                 $('header').addClass('fixed');
             } else {
                 $('header').removeClass('fixed');
