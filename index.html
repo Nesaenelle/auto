@@ -9,14 +9,38 @@
     <!-- Fix for iOS Safari zooming bug -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0, user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 </head>
 
 <body>
     <div id="app">
         <header>
             <div class="container">
+                <div class="burger" @click.stop="toggleMenu()" :class="{opened: showMenu}"><span></span></div>
+                <div class="dropdown-menu" :class="{opened: showMenu}" ref="menu">
+                    <div class="right unauthorized" v-if="!authorized">
+                        <button class="btn btn-login" @click="authorized = true">ВОЙТИ</button>
+                    </div>
+                    <div class="right authorized" v-if="authorized">
+                        <div class="user-name">
+                            <img src="img/user.svg" alt="">Дима
+                            <div class="user-name__close" @click="authorized = false"><img src="img/close.svg" alt=""></div>
+                        </div>
+                        <div class="user-dropdown">
+                            <div class="user-dropdown__item">Дима</div>
+                            <div class="user-dropdown__item">Мои отчеты</div>
+                            <div class="user-dropdown__item">Профиль</div>
+                            <div class="user-dropdown__item">Выйти</div>
+                        </div>
+                    </div>
+                    <nav>
+                        <ul>
+                            <li><a href="" class="active"><span>Проверить авто</span></a></li>
+                            <li><a href=""><span>Пользовательское соглашение</span></a></li>
+                            <li><a href=""><span>О проекте</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
                 <a class="logo" href="#">
                     <img src="img/icon.svg" alt="">
                     <img src="img/logo.svg" alt="">
@@ -61,30 +85,31 @@
                                 </div>
                                 Введен недопустимый символ
                             </div>
-
                             <input class="mask-input" type="text" v-model="searchValue" @input="searchValueChange()" placeholder="A 000 AA | 197" maxlength="10" name="number" required>
-
                             <div class="tooltip tooltip-types">
-                               <div class="tooltip__title">
+                                <div class="tooltip__title">
                                     <img src="img/exclamation-mark-inside-a-circle.svg" alt="">
-                                   Вы можете проверить гостномер следующих типов:
-                               </div>
-                               <div class="tooltip__list">
-                                   <div class="tooltip__example">
-                                       <div>А 000 АА</div><div> 197</div>
-                                   </div>
-                                   <div class="tooltip__example">
-                                       <div>А 000 АА</div><div> 197</div>
-                                   </div>
-                                   <div class="tooltip__example">
-                                       <div>А 000 АА</div><div> 197</div>
-                                   </div>
-                                   <div class="tooltip__example">
-                                       <div>А 000 АА</div><div> 197</div>
-                                   </div>
-                               </div>
+                                    Вы можете проверить гостномер следующих типов:
+                                </div>
+                                <div class="tooltip__list">
+                                    <div class="tooltip__example">
+                                        <div>А 000 АА</div>
+                                        <div> 197</div>
+                                    </div>
+                                    <div class="tooltip__example">
+                                        <div>А 000 АА</div>
+                                        <div> 197</div>
+                                    </div>
+                                    <div class="tooltip__example">
+                                        <div>А 000 АА</div>
+                                        <div> 197</div>
+                                    </div>
+                                    <div class="tooltip__example">
+                                        <div>А 000 АА</div>
+                                        <div> 197</div>
+                                    </div>
+                                </div>
                             </div>
-
                             <div class="search-block__form_number"><img src="img/question.svg" alt="">
                                 Как узнать гос. номер
                                 <div class="tooltip tooltip-number">
@@ -103,7 +128,6 @@
                             <button class="search-block__form_btn">ПРОВЕРИТЬ АВТО</button>
                         </form>
                     </div>
-     
                     <div class="check-types">
                         <div class="check-types__item"> <img src="img/truck-crash-car.svg" alt="">ДТП</div>
                         <div class="check-types__item"> <img src="img/car.svg" alt="">Реальный пробег</div>
@@ -128,11 +152,9 @@
             <section class="feedback">
                 <div class="container">
                     <h2 class="title">ОТЗЫВЫ ПОЛЬЗОВАТЕЛЕЙ</h2>
-                 
                     <div class="slick-slider">
                         <div class="slick">
                             <div class="feedback-item">
-
                                 <div class="feedback-item__avatar"><img src="img/photo1.png" alt=""></div>
                                 <div class="feedback-item__wrapper">
                                     <div class="feedback-item__name">Sergo</div>
@@ -141,7 +163,7 @@
                                         <span class="filled"></span>
                                         <span class="filled"></span>
                                         <span class="filled"></span>
-                                        <span ></span>
+                                        <span></span>
                                     </div>
                                     <div class="feedback-item__date">Отзыв из App Store 20 апреля 2018</div>
                                 </div>
@@ -167,11 +189,11 @@
                                 <div class="feedback-item__wrapper">
                                     <div class="feedback-item__name">Mark</div>
                                     <div class="feedback-item__rating">
-                                           <span class="filled"></span>
-                                           <span class="filled"></span>
-                                           <span class="filled"></span>
-                                           <span class="filled"></span>
-                                           <span></span>
+                                        <span class="filled"></span>
+                                        <span class="filled"></span>
+                                        <span class="filled"></span>
+                                        <span class="filled"></span>
+                                        <span></span>
                                     </div>
                                     <div class="feedback-item__date">10 март 2018</div>
                                 </div>
@@ -197,11 +219,11 @@
                                 <div class="feedback-item__wrapper">
                                     <div class="feedback-item__name">Alex</div>
                                     <div class="feedback-item__rating">
-                                          <span class="filled"></span>
-                                          <span class="filled"></span>
-                                          <span class="filled"></span>
-                                          <span class="filled"></span>
-                                          <span></span>
+                                        <span class="filled"></span>
+                                        <span class="filled"></span>
+                                        <span class="filled"></span>
+                                        <span class="filled"></span>
+                                        <span></span>
                                     </div>
                                     <div class="feedback-item__date">Отзыв в PlayMarket 27 марта 2018</div>
                                 </div>
@@ -227,7 +249,6 @@
                         <div class="appstore"><img src="img/app-store.png" alt=""></div>
                         <div class="playmarket"><img src="img/google-play.png" alt=""></div>
                     </div>
-         
                     <div class="questions">Возникли вопросы?</div>
                     <div class="phone-number"><img src="img/phone-receiver.svg" alt="">8 800 500 00 00</div>
                     <div class="go-top" @click="goTop()"></div>
@@ -247,7 +268,6 @@
                     <div class="copyright">Запрещено копирование, переработка и публикация информационных материалов сайта без письменного согласия владельца.</div>
                     <div class="copyright-mobile">©2007 - 2018 Все права защищены </div>
                 </div>
-    
             </div>
         </footer>
     </div>
