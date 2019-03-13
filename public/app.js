@@ -261,6 +261,9 @@ var app = new Vue({
     },
 
     methods: {
+        goBottom: function goBottom() {
+            scrollInstance.animate(document.documentElement, window.innerHeight, 1000);
+        },
         goTop: function goTop() {
             scrollInstance.animate(document.documentElement, 0, 1000);
         },

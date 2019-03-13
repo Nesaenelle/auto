@@ -3,7 +3,6 @@
 @import "footer.scss";
 @import "header.scss";
 @import "buttons.scss";
-@import "modal.scss";
 @import "fonts.scss";
 
 body {
@@ -23,6 +22,7 @@ body {
 .container {
     width: 100%;
     max-width: 1304px;
+    min-width: 300px;
     margin: auto;
     padding: 0 40px;
 
@@ -69,7 +69,7 @@ section.search {
     background-size: cover;
     background-position: center;
     position: relative;
-
+    min-height: 400px;
     @media screen and (max-width: 1280px) {
         height: 100vh;
         padding: 0;
@@ -88,7 +88,6 @@ section.search {
 
     .container {
         position: relative;
-
         @media screen and (max-width: 1280px) {
             padding-bottom: 100px;
         }
@@ -468,7 +467,22 @@ section.search {
         display: none;
 
         @media screen and (max-width: 1280px) {
-            display: block;
+            display: flex;
+            justify-content: center;
+            margin: auto;
+            position: absolute;
+            bottom: 60px;
+            left: 0;
+            right: 0;
+        }
+        border-radius: 100%;
+        border: 2px solid #fff;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        img {
+            margin-top: 4px;
         }
     }
 
