@@ -317,6 +317,7 @@ section.search {
 
                 @media screen and (max-width: 600px) {
                     position: static;
+                    margin-top: 10px;
                 }
             }
 
@@ -651,6 +652,13 @@ section.feedback {
             background: #F9E107;
             border-radius: 2px;
             width: 170px;
+            @media screen and (max-width: 720px) {}
+        }
+
+        
+        @media screen and (max-width: 720px) {
+            font-size: 20px;
+            padding: 0 20px;
         }
     }
 
@@ -673,6 +681,7 @@ section.feedback {
         @media screen and (max-width: 720px) {
             height: 330px;
             margin: 10px;
+            flex-wrap:wrap;
         }
 
         &__wrapper {
@@ -680,12 +689,21 @@ section.feedback {
             // flex-wrap: wrap;
             width: calc(100% - 90px);
             // align-items: flex-start;
+            @media screen and (max-width: 720px) {
+                width: 100%;
+            }
         }
 
         &__avatar {
-
+            @media screen and (max-width: 720px) {
+                width: 100%;
+              
+            }
             img {
                 border-radius: 100%;
+                @media screen and (max-width: 720px) {
+                    margin:auto;
+                }
             }
         }
 
@@ -695,18 +713,28 @@ section.feedback {
             color: #000000;
             width: 100%;
             margin: 13px 0px 0 3px;
+            @media screen and (max-width: 720px) {
+                text-align: center;
+                width: 100%;margin: auto;
+            }
         }
 
         &__date {
             font-size: 12px;
             color: #000000;
             margin-left: 3px;
+            @media screen and (max-width: 720px) {
+                text-align: center;
+            }
         }
 
         &__rating {
             width: 100%;
             margin-top: 10px;
-
+            @media screen and (max-width: 720px) {
+                width: 134px;
+                margin:20px auto 0;
+            }
             span {
                 display: inline-block;
                 background: url(../img/star.svg);
@@ -726,6 +754,9 @@ section.feedback {
             letter-spacing: 0.05em;
             font-style: italic;
             color: #000000;
+            @media screen and (max-width: 720px) {
+                margin-top: 10px;
+            }
         }
     }
 }

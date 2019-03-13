@@ -265,6 +265,10 @@ header {
       display: block;
     }
 
+    @media screen and(max-width: 720px) {
+      width: 30px;
+    }
+
     &.opened {
       span {
         background: none;
@@ -317,6 +321,9 @@ header {
         -ms-transition: all 0.2s linear;
         -o-transition: all 0.2s linear;
         transition: all 0.2s linear;
+        @media screen and(max-width: 720px) {
+          top: -9px;
+        }
       }
 
       &:after {
@@ -333,6 +340,9 @@ header {
         -ms-transition: all 0.2s linear;
         -o-transition: all 0.2s linear;
         transition: all 0.2s linear;
+        @media screen and(max-width: 720px) {
+          top: 9px;
+        }
       }
     }
   }
