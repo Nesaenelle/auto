@@ -101,42 +101,9 @@ var scrollToAnimate = exports.scrollToAnimate = function () {
 
 var _Utils = require('./Utils.js');
 
-var scrollInstance = new _Utils.scrollToAnimate();
-
-// let directive = Vue.directive('animate', {
-
-//     bind: (el, binding, vnode) => {
-
-//     },
-//     // Когда привязанный элемент вставлен в DOM...
-//     inserted: (el, binding, vnode) => {
-//         let once = false;
-//         update();
-//         window.addEventListener('scroll', () => {
-//             if (!once) {
-//                 update();
-//             }
-//         });
-
-//         function update() {
-//             if (isInViewport(el, 50)) {
-//                 el.classList.add(binding.value);
-//                 if (binding.arg === 'once') {
-//                     once = true;
-//                 }
-//             } else {
-//                 el.classList.remove(binding.value);
-//             }
-//         }
-//     }
-//     // update: function() {
-
-//     // }
-// });
-// Vue.use(directive);
+var scrollInstance = new _Utils.scrollToAnimate(); // alert(2);
 
 
-// alert(2);
 var app = new Vue({
     el: '#app',
     data: {
@@ -187,23 +154,16 @@ var app = new Vue({
         $(document).on('scroll', function () {
             _this.headerCheck();
         });
-        // $(window).on('click', (e) => {
-        //     var modal = $('.modal.opened');
-
-        //     if (modal && e.target.contains(modal[0])) {
-        //         this.closeModal();
-        //     }
-        // });
 
         window.addEventListener('mousewheel', function () {
             scrollInstance.clear();
         });
 
-        // window.addEventListener('click', (e) => {
-        //     if (!this.$refs.menu.contains(e.target)) {
-        //         this.showMenu = false;
-        //     }
-        // });
+        window.addEventListener('click', function (e) {
+            if (!_this.$refs.menu.contains(e.target)) {
+                _this.showMenu = false;
+            }
+        });
 
         var tabs = $('[data-navigation]');
         var links = $('header a[href]');

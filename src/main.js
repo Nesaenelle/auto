@@ -4,40 +4,7 @@ import { isScrolledIntoView, scrollToAnimate, isInViewport } from './Utils.js'
 let scrollInstance = new scrollToAnimate();
 
 
-// let directive = Vue.directive('animate', {
-
-//     bind: (el, binding, vnode) => {
-
-//     },
-//     // Когда привязанный элемент вставлен в DOM...
-//     inserted: (el, binding, vnode) => {
-//         let once = false;
-//         update();
-//         window.addEventListener('scroll', () => {
-//             if (!once) {
-//                 update();
-//             }
-//         });
-
-//         function update() {
-//             if (isInViewport(el, 50)) {
-//                 el.classList.add(binding.value);
-//                 if (binding.arg === 'once') {
-//                     once = true;
-//                 }
-//             } else {
-//                 el.classList.remove(binding.value);
-//             }
-//         }
-//     }
-//     // update: function() {
-
-//     // }
-// });
-// Vue.use(directive);
-
-
-var app = new Vue({
+let app = new Vue({
     el: '#app',
     data: {
         showMenu: false,
@@ -85,23 +52,16 @@ var app = new Vue({
         $(document).on('scroll', () => {
             this.headerCheck();
         });
-        // $(window).on('click', (e) => {
-        //     var modal = $('.modal.opened');
-
-        //     if (modal && e.target.contains(modal[0])) {
-        //         this.closeModal();
-        //     }
-        // });
 
         window.addEventListener('mousewheel', () => {
             scrollInstance.clear();
         });
 
-        // window.addEventListener('click', (e) => {
-        //     if (!this.$refs.menu.contains(e.target)) {
-        //         this.showMenu = false;
-        //     }
-        // });
+        window.addEventListener('click', (e) => {
+            if (!this.$refs.menu.contains(e.target)) {
+                this.showMenu = false;
+            }
+        });
 
         let tabs = $('[data-navigation]');
         let links = $('header a[href]');
