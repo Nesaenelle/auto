@@ -56,7 +56,21 @@
                         </div>
                         <form class="search-block__form" @submit.prevent="searchSubmit($event)">
                             <input type="text" v-model="searchValue" placeholder="A 000 AA | 197" maxlength="10" name="number" required>
-                            <div class="search-block__form_number"><img src="img/question.svg" alt="">Как узнать гос. номер</div>
+                            <div class="search-block__form_number"><img src="img/question.svg" alt="">
+                                Как узнать гос. номер
+                                <div class="tooltip tooltip-number">
+                                    <div>
+                                        <div class="tooltip__title">Гос. номер</div>
+                                        <div class="tooltip__descr">
+                                            Индивидуальный регистрационный знак (номер) автомобиля. Состоит из буквенно-цифрового сочетания и регионального кода
+                                        </div>
+                                        <div class="tooltip__example"> Пример: А 000 АА 197 </div>
+                                    </div>
+                                    <div>
+                                        <img src="img/passport.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
                             <button class="search-block__form_btn">ПРОВЕРИТЬ АВТО</button>
                         </form>
                     </div>
